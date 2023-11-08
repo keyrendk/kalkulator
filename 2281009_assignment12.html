@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple JS calculator</title>
+</head>
+<body>
+    <h1>A very simple JS Calculator</h1>
+    Input : <input type="number" id="num1">
+    <select id="hitung">
+        <option value="tambah">+</option>
+        <option value="kurang">-</option>
+        <option value="kali">*</option>
+        <option value="bagi">/</option>
+    </select>
+    <input type="number" id="num2">
+    <button onclick="kalkulator()">Calculate</button><br><br>
+    Result : <input type="number" id="hasil" readonly>
+    
+    <script>
+        function kalkulator() {
+            let num1 = parseInt(document.getElementById("num1").value);
+            let num2 = parseInt(document.getElementById("num2").value);
+            let hitung = document.getElementById("hitung").value;
+            let hasil;
+
+            if (hitung == "tambah"){
+                tambah(num1,num2);
+            } else if (hitung == "kurang"){
+                kurang(num1,num2);
+            } else if (hitung == "kali"){
+                kali(num1,num2);
+            } else {
+                bagi(num1,num2);
+            }
+
+            function tambah(num1,num2){
+                hasil = num1 + num2;
+                return hasil;
+            }
+            function kurang(num1,num2){
+                hasil = num1 - num2;
+                return hasil;
+            }
+            function kali(num1,num2){
+                hasil = num1 * num2;
+                return hasil;
+            }
+            function bagi(num1,num2){
+                hasil = num1 / num2;
+                return hasil;
+            }
+            document.getElementById("hasil").value = hasil;
+        }
+    </script>
+</body>
+</html>
